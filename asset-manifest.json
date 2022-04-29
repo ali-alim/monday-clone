@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/monday-clone/static/css/main.8f79f143.css",
+    "main.js": "/monday-clone/static/js/main.2506fcd3.js",
+    "static/media/blank-profile.png": "/monday-clone/static/media/blank-profile.c3f945216dc12c9498dc.png",
+    "static/media/crm-logo.png": "/monday-clone/static/media/crm-logo.8074472154579d923d41.png",
+    "index.html": "/monday-clone/index.html",
+    "main.8f79f143.css.map": "/monday-clone/static/css/main.8f79f143.css.map",
+    "main.2506fcd3.js.map": "/monday-clone/static/js/main.2506fcd3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8f79f143.css",
+    "static/js/main.2506fcd3.js"
+  ]
+}
