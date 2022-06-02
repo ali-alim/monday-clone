@@ -8,6 +8,7 @@ const TicketsSchema = new mongoose.Schema({
     owner: String,
     progress: Number,
     avatar:String,
+    status:String,
 });
 
 const Tickets = mongoose.model("tickets", TicketsSchema);

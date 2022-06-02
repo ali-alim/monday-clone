@@ -16,9 +16,9 @@ function App() {
           <Nav />
           <Routes>
             <Route path="/" element={<Dashboard />} />
-            <Route path="/ticket" element={<TicketPage />} />
+            <Route path="/tickets" element={<TicketPage />} />
             <Route
-              path="/ticket/:id"
+              path="/tickets/:id"
               element={<TicketPage editMode={true} />}
             />
           </Routes>

@@ -62,16 +62,27 @@ const Dashboard = () => {
         {tickets &&
           uniqueCategories?.map((uniqueCategory, categoryIndex) => (
             <div key={categoryIndex}>
-              <h3>{uniqueCategory}</h3>
+              {/* <h3>{uniqueCategory}</h3> */}
               {tickets
                 .filter((ticket) => ticket.category === uniqueCategory)
                 .map((filteredTicket, _index) => (
                   <TicketCard
-                    key={_index}
-                    id={_index}
-                    color={colors[categoryIndex] || colors[0]}
-                    ticket={filteredTicket}
-                  />
+                  key={_index}
+                  id={_index}
+                  color={colors[categoryIndex] || colors[0]}
+                  ticket={filteredTicket}
+                />
+                  // <div key={_index} className="fields">
+                  //   <div>{filteredTicket.title}</div>
+                  //   <div>{filteredTicket.description}</div>
+                  //   <div>{filteredTicket.category}</div>
+                  //   <div>{filteredTicket.priority}</div>
+                  //   <div>{filteredTicket.owner}</div>
+                  //   <div>{filteredTicket.progress}</div>
+                  //   <div>{filteredTicket.avatar}</div>
+                  //   <div>{filteredTicket.status}</div>
+                  // </div>
+
                 ))}
             </div>
           ))}
@@ -81,3 +92,4 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+

@@ -35,14 +35,14 @@ const TicketPage = ({ editMode }) => {
     }
   }; 
 
-  const fetchData = async () => {
-    const response = await axios.get(`http://localhost:5000/ticket/${id}`);
-    setTicket(response.data.data);
-  };
+  // const fetchData = async () => {
+  //   const response = await axios.get(`http://localhost:5000/tickets/${id}`);
+  //   setTicket(response.data.data);
+  // };
 
-  useEffect(() => {
-    if (editMode) fetchData();
-  }, []);
+  // useEffect(() => {
+  //   if (editMode) fetchData();
+  // }, []);
 
   const handleChange = (e) => {
     const value = e.target.value;

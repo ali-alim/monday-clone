@@ -8,16 +8,16 @@ import DeleteBlock from "./DeleteBlock";
 const TicketCard = ({ ticket, color }) => {
   return (
     <div className="ticket-card">
-      <Link to={`/tickets/${ticket._id}`} id="link">
-      <div className="ticket-color" style={{backgroundColor:color}}> </div>
-        <h3>{ticket.title}</h3>
-        <h4>{ticket.description}</h4>
-        <AvatarDisplay ticket={ticket} />
-        <StatusDisplay status={ticket.status} />
-        <PriorityDisplay priority={ticket.priority}/>
-        <ProgressDisplay  progress={ticket.progress}/>
+      <Link to={`/tickets/${ticket._id}`} id="link" className="link-elements">
+          <div className="links ticket-color" style={{backgroundColor:color}}> </div>
+          <div className="links"><h3>{ticket.title}</h3></div>
+          <div className="links"><h4>{ticket.description}</h4></div>
+          <div className="links"><AvatarDisplay ticket={ticket} /></div>
+          <div className="links"><StatusDisplay status={ticket.status} /></div>
+          <div className="links"><PriorityDisplay priority={ticket.priority}/></div>
+          <div className="links"><ProgressDisplay  progress={ticket.progress}/></div>
       </Link>
-      <DeleteBlock documentId={ticket._id}/>
+      <DeleteBlock className="tickets-delete" documentId={ticket._id}/>
     </div>
   );
 };
