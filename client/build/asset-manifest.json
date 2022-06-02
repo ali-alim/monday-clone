@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e8f5815e.css",
+    "main.js": "/static/js/main.c0882280.js",
+    "static/media/blank-profile.png": "/static/media/blank-profile.c3f945216dc12c9498dc.png",
+    "static/media/crm-logo.png": "/static/media/crm-logo.8074472154579d923d41.png",
+    "index.html": "/index.html",
+    "main.e8f5815e.css.map": "/static/css/main.e8f5815e.css.map",
+    "main.c0882280.js.map": "/static/js/main.c0882280.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e8f5815e.css",
+    "static/js/main.c0882280.js"
+  ]
+}
