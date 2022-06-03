@@ -2,7 +2,10 @@ html,
 body {
   margin: 0;
   padding: 0;
-  font-family: "Trebuchet MS", Arial, sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+body{
+  background-color: var(--yellow-color);
 }
 :root{
   --orange-color: #ff652f;
@@ -15,17 +18,14 @@ body {
   display: flex;
 }
 
-#link {
-  text-decoration: none;
-  /* color: rgb(46, 46, 46); */
-}
+
 
 /* ========== NAV ========== */
 
 nav {
   /* min-height: 100%; */
   height: 100vh;
-  background-color: rgb(44, 44, 64);
+  background-color: var(--black-color);
   color: rgb(255, 255, 255);
   text-align: center;
   display: flex;
@@ -60,6 +60,10 @@ nav .icon {
   overflow: scroll;
 } */
 
+#link{
+  text-decoration: none;
+}
+
 /* ========== TICKETCARD ========== */
 .ticket-card {
   display: flex;
@@ -72,18 +76,25 @@ nav .icon {
   width: 100%;
 }
 
+.links{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .ticket-card h4{
   text-align: center;
 }
 
 .ticket-card #link > * {
-  background-color: rgb(28, 126, 238);
+  background-color: var(--green-color);
+  color: var(--black-color);
   margin: 2px;
   padding: 30px;
   width: 100%;
   display: flex;
   align-items: center;
-  border: 1px solid rgb(44, 44, 64);
+  border-radius: 5px;
+  font-size: 15px;
 }
 
 .ticket-card .ticket-color {
@@ -92,14 +103,17 @@ nav .icon {
   padding: 10px;
 }
 
-.ticket-card .avatar-container {
+/* .avatar-container {
   display: flex;
+  height: 0px;
   justify-content: center;
-  width: 80px;
-}
+  align-items: center;
+  width: 100px;
+} */
 
 .img-container {
   width: 130px;
+  height: 96px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -155,8 +169,8 @@ nav .icon {
   height: 100%;
 }
 
-.ticket-card .delete-block {
-  background-color: rgb(211, 211, 211);
+.delete-block {
+  background-color: var(--orange-color);
   width: 50px;
   margin: 2px;
   display: flex;

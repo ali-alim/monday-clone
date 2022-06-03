@@ -5,11 +5,11 @@ import PriorityDisplay from "./PriorityDisplay";
 import ProgressDisplay from "./ProgressDisplay";
 import DeleteBlock from "./DeleteBlock";
 
-const TicketCard = ({ ticket, color }) => {
+const TicketCard = ({ ticket, color, index }) => {
   return (
     <div className="ticket-card">
       <Link to={`/tickets/${ticket._id}`} id="link" className="link-elements">
-          <div className="links ticket-color" style={{backgroundColor:color}}> </div>
+          <div className="links" style={{width:"20px",textAlign:"center",fontWeight:"bold",textDecoration:"underline"}}>{index+1}</div>
           <div className="links"><h3>{ticket.title}</h3></div>
           <div className="links"><h4>{ticket.description}</h4></div>
           <div className="links"><AvatarDisplay ticket={ticket} /></div>

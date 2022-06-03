@@ -69,20 +69,10 @@ const Dashboard = () => {
                   <TicketCard
                   key={_index}
                   id={_index}
+                  index={_index}
                   color={colors[categoryIndex] || colors[0]}
                   ticket={filteredTicket}
                 />
-                  // <div key={_index} className="fields">
-                  //   <div>{filteredTicket.title}</div>
-                  //   <div>{filteredTicket.description}</div>
-                  //   <div>{filteredTicket.category}</div>
-                  //   <div>{filteredTicket.priority}</div>
-                  //   <div>{filteredTicket.owner}</div>
-                  //   <div>{filteredTicket.progress}</div>
-                  //   <div>{filteredTicket.avatar}</div>
-                  //   <div>{filteredTicket.status}</div>
-                  // </div>
-
                 ))}
             </div>
           ))}
