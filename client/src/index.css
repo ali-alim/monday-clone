@@ -34,18 +34,24 @@ nav {
   justify-content: space-between;
 }
 
-nav .logo-container,
-nav .controls-container {
+ .controls-container {
   padding: 40px 25px;
   display: flex;
   flex-direction: column;
 }
 
-nav .logo-container img {
-  width: 20px;
+.logo-container{
+  display: flex;
+  justify-content: center;
+  margin-top: 52px;
+}
+.logo-container img {
+  width: 50px;
+  border-radius: 10px;
+
 }
 
-nav .icon {
+.icon {
   color: rgb(255, 255, 255);
 }
 
@@ -56,10 +62,10 @@ nav .icon {
   width: 100%;
 }
 
-/* .dashboard .ticket-container {
+.dashboard .ticket-container {
   height: 80vh;
   overflow: scroll;
-} */
+}
 
 #link{
   text-decoration: none;
