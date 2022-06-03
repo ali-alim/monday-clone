@@ -66,7 +66,8 @@ const TicketPage = ({ editMode }) => {
     <div className="ticket">
       <h1>{editMode ? "Update Your Ticket" : "Create a Ticket"}</h1>
       <div className="ticket-container" >
-        <form onSubmit={handleSubmit} style={{backgroundColor: editMode ? "var(--green-color)" : "var(--yellow-color)" }}>
+        {/* <form onSubmit={handleSubmit} style={{backgroundColor: editMode ? "var(--green-color)" : "var(--yellow-color)" }}> */}
+        <form onSubmit={handleSubmit}>
           <section>
             <label htmlFor="title">Title</label>
             <input

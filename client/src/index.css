@@ -4,9 +4,9 @@ body {
   padding: 0;
   font-family: 'Roboto Condensed', sans-serif;
 }
-body{
+/* body{
   background-color: var(--yellow-color);
-}
+} */
 :root{
   --orange-color: #ff652f;
   --yellow-color: #ffe400;
