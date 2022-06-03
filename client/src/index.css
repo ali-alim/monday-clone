@@ -179,11 +179,15 @@ nav .icon {
   align-items: center;
 }
 
-.ticket-card .delete-block .delete-icon {
+.delete-block:hover{
+  cursor: pointer;
+}
+
+.delete-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgb(61, 61, 61);
+  /* background-color: rgb(61, 61, 61); */
   border-radius: 10px;
   color: rgb(255, 255, 255);
   width: 20px;
