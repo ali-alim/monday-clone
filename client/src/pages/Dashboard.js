@@ -3,13 +3,15 @@ import TicketCard from "./../components/TicketCard";
 import axios from "axios";
 import CategoriesContext from "../context";
 
+const url = "http://localhost:5000"
+
 const Dashboard = () => {
   const [tickets, setTickets] = useState([]);
   const {categories, setCategories} = useContext(CategoriesContext)
 
   useEffect(() => {
     axios
-    .get('/tickets')
+    .get(`${url}/tickets`)
     .then((response) => {
       const data = response.data;
       setTickets(data)

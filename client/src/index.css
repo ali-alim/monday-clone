@@ -10,7 +10,8 @@ body {
 :root{
   --orange-color: #ff652f;
   --yellow-color: #ffe400;
-  --green-color: #14a76c;
+  /* --green-color: #3dbb3d; */
+  --green-color: #4ec193;
   --gray-color: #747474;
   --black-color: #272727;
 }
@@ -202,8 +203,9 @@ nav .icon {
   justify-content: center;
 }
 
-.ticket form {
+form {
   display: flex;
+  width: 60%;
 }
 
 .ticket form section{
@@ -217,8 +219,7 @@ nav .icon {
   margin: 20px 0 0 0;
 }
 
-.ticket form select,
-.ticket form input {
+form select, form input {
   padding: 10px;
   font-size: 15px;
   border-radius: 10px;

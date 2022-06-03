@@ -3,6 +3,8 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import CategoriesContext from "./../context";
 
+const url = "http://localhost:5000"
+
 const TicketPage = ({ editMode }) => {
   const [ticket, setTicket] = useState({
     status: "not started",
@@ -20,14 +22,14 @@ const TicketPage = ({ editMode }) => {
 
     if (editMode) {
       try{
-        await axios.put(`/tickets/${id}`, ticket);
+        await axios.put(`${url}/tickets/${id}`, ticket);
       } catch(err) { console.log(err)}
       console.log(`yenilendi ve sunucuya gonderildi `, ticket)
       navigate("/");
       
     }
     if (!editMode) {
-      await axios.post("/tickets", ticket);
+      await axios.post(`/tickets`, ticket);
 
       console.log(`ticket -> ON SUBMIT:`, ticket);
 
@@ -37,7 +39,7 @@ const TicketPage = ({ editMode }) => {
 
   const fetchData = async () => {
     axios
-    .get(`/tickets/${id}`)
+    .get(`${url}/tickets/${id}`)
     .then((response) => {
       const data = response.data;
       setTicket(data)
