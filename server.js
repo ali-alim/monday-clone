@@ -20,69 +20,6 @@ app.use(cors());
 
 app.use("/tickets", require('./routes/tickets'))
 
-
-// app.get("/tickets/:documentId", async (req, res) => {
-//   const id = req.params.documentId;
-
-//   const options = {
-//     method: "GET",
-//     headers: {
-//       Accepts: "application/json",
-//       "X-Cassandra-Token": TOKEN,
-//     },
-//   };
-
-//   try {
-//     const response = await axios(`${URL}/${id}`, options);
-//     res.status(200).json(response.data);
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json({ message: err });
-//   }
-// });
-
-
-// app.put("/tickets/:documentId", async (req, res) => {
-//   const id = req.params.documentId;
-//   const data = req.body.data;
-
-//   const options = {
-//     method: "PUT",
-//     headers: {
-//       Accepts: "application/json",
-//       "X-Cassandra-Token": TOKEN,
-//     },
-//     data,
-//   };
-
-//   try {
-//     const response = await axios(`${URL}/${id}`, options);
-//     res.status(200).json(response.data);
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json({ message: err });
-//   }
-// });
-
-// app.delete("/tickets/:documentId", async (req, res) => {
-//   const id = req.params.documentId;
-
-//   const options = {
-//     method: "DELETE",
-//     headers: {
-//       Accepts: "application/json",
-//       "X-Cassandra-Token": TOKEN,
-//     },
-//   };
-//   try {
-//     const response = await axios(`${URL}/${id}`, options);
-//     res.status(200).json(response.data);
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json({ message: err });
-//   }
-// });
-
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "/client/build")));
   app.get("*", (req, res) => {

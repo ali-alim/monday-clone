@@ -9,7 +9,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     axios
-    .get('http://localhost:5000/tickets')
+    .get('/tickets')
     .then((response) => {
       const data = response.data;
       setTickets(data)
@@ -19,22 +19,6 @@ const Dashboard = () => {
     });
   }, [tickets])
 
-  // const getData = async () => {
-  //   const response = await axios.get("http://localhost:5000/tickets");
-
-  //   const dataObject = response.data.data;
-
-  //   const arrayOfKeys = Object.keys(dataObject);
-  //   const arrayOfData = Object.keys(dataObject).map((key) => dataObject[key]);
-  //   const formattedArray = [];
-
-  //   arrayOfKeys.forEach((key, index) => {
-  //     const formattedData = { ...arrayOfData[index] };
-  //     formattedData["documentId"] = key;
-  //     formattedArray.push(formattedData);
-  //   });
-  //   setTickets(formattedArray)
-  // }
 
 
   const uniqueCategories = [

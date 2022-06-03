@@ -20,14 +20,14 @@ const TicketPage = ({ editMode }) => {
 
     if (editMode) {
       try{
-        await axios.put(`http://localhost:5000/tickets/${id}`, ticket);
+        await axios.put(`/tickets/${id}`, ticket);
       } catch(err) { console.log(err)}
       console.log(`yenilendi ve sunucuya gonderildi `, ticket)
       navigate("/");
       
     }
     if (!editMode) {
-      await axios.post("http://localhost:5000/tickets", ticket);
+      await axios.post("/tickets", ticket);
 
       console.log(`ticket -> ON SUBMIT:`, ticket);
 
@@ -37,7 +37,7 @@ const TicketPage = ({ editMode }) => {
 
   const fetchData = async () => {
     axios
-    .get(`http://localhost:5000/tickets/${id}`)
+    .get(`/tickets/${id}`)
     .then((response) => {
       const data = response.data;
       setTicket(data)
