@@ -4,19 +4,26 @@ body {
   padding: 0;
   font-family: "Trebuchet MS", Arial, sans-serif;
 }
-
+:root{
+  --orange-color: #ff652f;
+  --yellow-color: #ffe400;
+  --green-color: #14a76c;
+  --gray-color: #747474;
+  --black-color: #272727;
+}
 .app {
   display: flex;
 }
 
 #link {
   text-decoration: none;
-  color: rgb(46, 46, 46);
+  /* color: rgb(46, 46, 46); */
 }
 
 /* ========== NAV ========== */
 
 nav {
+  /* min-height: 100%; */
   height: 100vh;
   background-color: rgb(44, 44, 64);
   color: rgb(255, 255, 255);
@@ -48,15 +55,16 @@ nav .icon {
   width: 100%;
 }
 
-.dashboard .ticket-container {
+/* .dashboard .ticket-container {
   height: 80vh;
   overflow: scroll;
-}
+} */
 
 /* ========== TICKETCARD ========== */
 .ticket-card {
   display: flex;
   width: 100%;
+  height: 160px;
 }
 
 .ticket-card #link {
@@ -69,12 +77,13 @@ nav .icon {
 }
 
 .ticket-card #link > * {
-  background-color: rgb(221, 221, 221);
+  background-color: rgb(28, 126, 238);
   margin: 2px;
   padding: 30px;
   width: 100%;
   display: flex;
   align-items: center;
+  border: 1px solid rgb(44, 44, 64);
 }
 
 .ticket-card .ticket-color {
@@ -89,20 +98,34 @@ nav .icon {
   width: 80px;
 }
 
-.ticket-card .img-container {
-  height: 80px;
-  width: 80px;
-  border-radius: 25px;
+.img-container {
+  width: 130px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
   overflow: hidden;
 }
 
-.ticket-card .img-container img {
+.img-preview{
+  display: flex;
+}
+.img-preview img{
   width: 100%;
 }
 
-.ticket-card .status-display {
+.img-container img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.status-display {
   display: flex;
+  width: 100%;
+  height: 100%;
   justify-content: center;
+  align-items: center;
+  border-radius: 5px;
 }
 
 .ticket-card .priority-display .star-container {
@@ -173,8 +196,7 @@ nav .icon {
   display: flex;
   flex-direction: column;
   margin: 10px;
-  /* width: 60%; */
-  width: 300px;
+  width: 60%;
 }
 
 .ticket form label{

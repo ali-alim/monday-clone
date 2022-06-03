@@ -5,44 +5,52 @@ import CategoriesContext from "./../context";
 
 const TicketPage = ({ editMode }) => {
   const [ticket, setTicket] = useState({
-    status:"not started", progress:0
+    status: "not started",
+    progress: 0,
   });
+
 
   const navigate = useNavigate();
   let { id } = useParams();
-
 
   const { categories, setCategories } = useContext(CategoriesContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if(editMode) {
-      const response = await axios.put(`http://localhost:5000/tickets/${id}`, {
-        data: ticket
-      })
-      const success = response.status === 200;
-      if (success) {
-        navigate('/');
-      } else {console.log("error")}
+    if (editMode) {
+      try{
+        await axios.put(`http://localhost:5000/tickets/${id}`, ticket);
+      } catch(err) { console.log(err)}
+      console.log(`yenilendi ve sunucuya gonderildi `, ticket)
+      navigate("/");
+      
     }
-    if(!editMode) {
-    await axios.post("http://localhost:5000/tickets", ticket);
+    if (!editMode) {
+      await axios.post("http://localhost:5000/tickets", ticket);
 
-    console.log(`ticket -> ON SUBMIT:`, ticket);
+      console.log(`ticket -> ON SUBMIT:`, ticket);
 
-    navigate("/");
+      navigate("/");
     }
-  }; 
+  };
 
-  // const fetchData = async () => {
-  //   const response = await axios.get(`http://localhost:5000/tickets/${id}`);
-  //   setTicket(response.data.data);
-  // };
+  const fetchData = async () => {
+    axios
+    .get(`http://localhost:5000/tickets/${id}`)
+    .then((response) => {
+      const data = response.data;
+      setTicket(data)
+    })
+    .catch(() => {
+      alert('error retrieving data')
+    });
 
-  // useEffect(() => {
-  //   if (editMode) fetchData();
-  // }, []);
+  };
+
+  useEffect(() => {
+    if (editMode) fetchData();
+  }, []);
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -162,7 +170,6 @@ const TicketPage = ({ editMode }) => {
                   id="progress"
                   name="progress"
                   value={ticket.progress}
-                  // placeholder={ticket.progress}
                   min="0"
                   max="100"
                   onChange={handleChange}
