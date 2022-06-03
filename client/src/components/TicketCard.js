@@ -5,7 +5,8 @@ import PriorityDisplay from "./PriorityDisplay";
 import ProgressDisplay from "./ProgressDisplay";
 import DeleteBlock from "./DeleteBlock";
 
-const url = "http://localhost:5000"
+// const url = "http://localhost:5000"
+const url = "https://monday-ali.herokuapp.com"
 
 const TicketCard = ({ ticket, color, index }) => {
   return (

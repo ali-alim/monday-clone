@@ -3,7 +3,8 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import CategoriesContext from "./../context";
 
-const url = "http://localhost:5000"
+// const url = "http://localhost:5000"
+const url = "https://monday-ali.herokuapp.com"
 
 const TicketPage = ({ editMode }) => {
   const [ticket, setTicket] = useState({

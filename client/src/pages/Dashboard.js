@@ -3,7 +3,8 @@ import TicketCard from "./../components/TicketCard";
 import axios from "axios";
 import CategoriesContext from "../context";
 
-const url = "http://localhost:5000"
+// const url = "http://localhost:5000"
+const url = "https://monday-ali.herokuapp.com"
 
 const Dashboard = () => {
   const [tickets, setTickets] = useState([]);

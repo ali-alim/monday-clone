@@ -1,7 +1,8 @@
 import axios from 'axios'
 import React from 'react'
 
-const url = "http://localhost:5000"
+// const url = "http://localhost:5000"
+const url = "https://monday-ali.herokuapp.com"
 
 const DeleteBlock = ({documentId}) => {
 
