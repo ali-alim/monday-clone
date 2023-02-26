@@ -15,9 +15,10 @@ mongoose.connect(
     useUnifiedTopology: true,
   }
 );
-app.use(cors());
+// express.json should be above cors()
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(cors());
 
 app.use("/api/tickets", require("./routes/tickets"));
 
@@ -53,6 +54,16 @@ app.post("/api/login", async (req, res) => {
   }
 });
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "/client/build")));
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+  });
+} else {
+  app.get("*", (req, res) => {
+    res.send("Api running");
+  });
+}
 
 app.listen(process.env.PORT, () => {
   console.log("server runs on port: " + process.env.PORT);
