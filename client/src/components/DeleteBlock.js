@@ -1,13 +1,10 @@
 import axios from 'axios'
 import React from 'react'
 
-// const url = "http://localhost:5000"
-const url = "https://monday-ali.herokuapp.com"
-
 const DeleteBlock = ({documentId}) => {
 
   const deleteTicket = async() => {
-    const response = await axios.delete(`${url}/tickets/${documentId}`)
+    const response = await axios.delete(process.env.REACT_APP_API_URL + `/tickets/${documentId}`)
     const success = response.status == 200
     if(success) window.location.reload()
   }

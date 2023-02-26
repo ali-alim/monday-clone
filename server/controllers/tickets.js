@@ -21,10 +21,7 @@ const getTicket = async (req, res) => {
 
 const createTickets = async (req, res) => {
   const ticket = req.body;
-  console.log(`ticket received from client side:`, ticket)
   const newticket = new Tickets(ticket);
-  console.log(`NEW-ticket created from ticket -> client side:`, newticket)
-  
   try{ newticket.save(); } 
   catch(err){console.log(err)}
 
@@ -40,7 +37,6 @@ const updateTicket = async(req,res) => {
       updatedTicket.progress = progress;
       updatedTicket.status = status;
       updatedTicket.save();
-      console.log(`updatedTicket on the server: `,updateTicket)
       res.send("successfully updated")
     });
   } catch(err) {

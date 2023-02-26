@@ -3,57 +3,50 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import CategoriesContext from "./../context";
 
-// const url = "http://localhost:5000"
-const url = "https://monday-ali.herokuapp.com"
-
 const TicketPage = ({ editMode }) => {
+  const { categories, setCategories } = useContext(CategoriesContext);
+  const navigate = useNavigate();
+  let { id } = useParams();
+  const [dataFetched, setDataFetched] = useState(false);
   const [ticket, setTicket] = useState({
     status: "not started",
     progress: 0,
   });
-
-
-  const navigate = useNavigate();
-  let { id } = useParams();
-
-  const { categories, setCategories } = useContext(CategoriesContext);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     if (editMode) {
-      try{
-        await axios.put(`${url}/tickets/${id}`, ticket);
-      } catch(err) { console.log(err)}
-      console.log(`yenilendi ve sunucuya gonderildi `, ticket)
+      try {
+        await axios.put(
+          process.env.REACT_APP_API_URL + `/tickets/${id}`,
+          ticket
+        );
+      } catch (err) {
+        console.log(err);
+      }
       navigate("/");
-      
     }
     if (!editMode) {
-      await axios.post(`/tickets`, ticket);
-
-      console.log(`ticket -> ON SUBMIT:`, ticket);
-
+      await axios.post(process.env.REACT_APP_API_URL + "/tickets", ticket);
       navigate("/");
     }
   };
 
   const fetchData = async () => {
     axios
-    .get(`${url}/tickets/${id}`)
-    .then((response) => {
-      const data = response.data;
-      setTicket(data)
-    })
-    .catch(() => {
-      alert('error retrieving data')
-    });
-
+      .get(process.env.REACT_APP_API_URL + `/tickets/${id}`)
+      .then((response) => {
+        const data = response.data;
+        setTicket(data);
+        setDataFetched(true);
+      })
+      .catch(() => {
+        alert("error retrieving data");
+      });
   };
 
   useEffect(() => {
-    if (editMode) fetchData();
-  }, []);
+    if (editMode && dataFetched === false) fetchData();
+  }, [editMode]);
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -68,8 +61,7 @@ const TicketPage = ({ editMode }) => {
   return (
     <div className="ticket">
       <h1>{editMode ? "Update Your Ticket" : "Create a Ticket"}</h1>
-      <div className="ticket-container" >
-        {/* <form onSubmit={handleSubmit} style={{backgroundColor: editMode ? "var(--green-color)" : "var(--yellow-color)" }}> */}
+      <div className="ticket-container">
         <form onSubmit={handleSubmit}>
           <section>
             <label htmlFor="title">Title</label>
@@ -122,7 +114,7 @@ const TicketPage = ({ editMode }) => {
                 type="radio"
                 onChange={handleChange}
                 value={1}
-                checked={ticket.priority == 1}
+                checked={ticket?.priority === "1"}
               />
               <label htmlFor="priority-1">1</label>
 
@@ -132,17 +124,16 @@ const TicketPage = ({ editMode }) => {
                 type="radio"
                 onChange={handleChange}
                 value={2}
-                checked={ticket.priority == 2}
+                checked={ticket?.priority === "2"}
               />
               <label htmlFor="priority-2">2</label>
-
               <input
                 id="priority-3"
                 name="priority"
                 type="radio"
                 onChange={handleChange}
                 value={3}
-                checked={ticket.priority == 3}
+                checked={ticket?.priority === "3"}
               />
               <label htmlFor="priority-3">3</label>
 
@@ -152,7 +143,7 @@ const TicketPage = ({ editMode }) => {
                 type="radio"
                 onChange={handleChange}
                 value={4}
-                checked={ticket.priority == 4}
+                checked={ticket?.priority === "4"}
               />
               <label htmlFor="priority-4">4</label>
 
@@ -162,7 +153,7 @@ const TicketPage = ({ editMode }) => {
                 type="radio"
                 onChange={handleChange}
                 value={5}
-                checked={ticket.priority == 5}
+                checked={ticket?.priority === "5"}
               />
               <label htmlFor="priority-5">5</label>
             </div>
@@ -186,20 +177,20 @@ const TicketPage = ({ editMode }) => {
                   value={ticket.status}
                   onChange={handleChange}
                 >
-                  <option selected={ticket.status == "done"} value="done">
+                  <option selected={ticket.status === "done"} value="done">
                     Done
                   </option>
                   <option
-                    selected={ticket.status == "working on it"}
+                    selected={ticket.status === "working on it"}
                     value="working on it"
                   >
                     Working on it
                   </option>
-                  <option selected={ticket.status == "stuck"} value="stuck">
+                  <option selected={ticket.status === "stuck"} value="stuck">
                     Stuck
                   </option>
                   <option
-                    selected={ticket.status == "not started"}
+                    selected={ticket.status === "not started"}
                     value="not started"
                   >
                     Not Started
