@@ -1,24 +1,27 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-require("dotenv").config();
-const path = require("path");
-const cors = require("cors");
+const dotenv = require("dotenv");
 const User = require("./models/User");
 const jwt = require('jsonwebtoken');
+const cors = require("cors");
 
-mongoose.connect(
+dotenv.config();
+
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+mongoose
+.connect(
   process.env.MONGO_URI,
-  () => console.log("Database is connected"),
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-  }
-);
-// express.json should be above cors()
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cors());
+  })
+.then(() => console.log("MongoDB connected!"))
+.catch(err => console.log(err));
+
 
 app.use("/api/tickets", require("./routes/tickets"));
 
@@ -54,16 +57,6 @@ app.post("/api/login", async (req, res) => {
   }
 });
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "/client/build")));
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-  });
-} else {
-  app.get("*", (req, res) => {
-    res.send("Api running");
-  });
-}
 
 app.listen(process.env.PORT, () => {
   console.log("server runs on port: " + process.env.PORT);
